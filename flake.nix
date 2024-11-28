@@ -1,15 +1,27 @@
 {
-  description = "A very basic flake";
+  description = "A password generator made by C";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=release-24.11";
+    flakeutils.url = "github:numtide/flake-utils";   
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs, flakeutils }: 
+    flakeutils.lib.eachDefaultSystem (system:
+      let
+        inherit (nixpkgs.lib) optional;
+        pkgs = import nixpkgs { inherit system; };
 
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
-
-  };
+        gcc = pkgs.libgcc;
+        gdb = pkgs.gdb;
+      in
+      {
+        devShells.default = pkgs.mkShell {
+          buildInputs = [
+            gcc
+            gdb
+          ];
+        };
+      }
+    );
 }
