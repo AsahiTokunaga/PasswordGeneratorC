@@ -14,12 +14,14 @@
 
         gcc = pkgs.libgcc;
         gdb = pkgs.gdb;
+        clangd = pkgs.libclang;
       in
       {
         devShells.default = pkgs.mkShell {
           buildInputs = [
             gcc
             gdb
+            clangd
           ];
         };
       }
