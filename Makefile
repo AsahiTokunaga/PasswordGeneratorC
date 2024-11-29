@@ -1,5 +1,5 @@
 TARGET = pwgenC
-SRCS   = main.c
+SRCS   = pwgen.c
 OBJS   = $(SRCS:.c=.o)
 CC     = gcc
 CFLAGS = -Wall -O2
