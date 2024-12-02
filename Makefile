@@ -1,12 +1,12 @@
 TARGET = pwgenC
 SRCS   = main.c \
-					generate.c \
-					getpool.c \
-					getrand.c
+	 generate.c \
+	 getpool.c \
+	 getrand.c
 OBJS   = $(SRCS:.c=.o)
 INCL   = -Igenerate.h \
-					-Igetpool.h \
-					-Igetrand.h
+	 -Igetpool.h \
+	 -Igetrand.h
 CC     = gcc
 CFLAGS = -Wall -Wextra -Werror -O2 -mrdrnd
 
