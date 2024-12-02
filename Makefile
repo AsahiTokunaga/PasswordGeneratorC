@@ -1,8 +1,8 @@
 TARGET = pwgenC
-SRCS   = pwgen.c
+SRCS   = main.c
 OBJS   = $(SRCS:.c=.o)
 CC     = gcc
-CFLAGS = -Wall -O2
+CFLAGS = -Wall -O2 -mrdrnd
 
 all: $(TARGET) clean
 
