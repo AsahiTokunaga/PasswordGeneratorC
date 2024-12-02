@@ -15,3 +15,6 @@ make all
 
 > [!TIP]
 > charTypes can be selected more than once.
+
+# Example
+<img src="https://github.com/user-attachments/assets/3e00bed4-fbbe-4826-bf7f-5e4ebf77d930" width="80%">
